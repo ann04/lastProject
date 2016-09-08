@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper     
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myspring.myguest.mappers.GuestMapper">
+	<insert id="insertData" parameterType="gb">
+		insert into guestbook values(guestbook_seq.nextval,#{name},
+		#{content},#{grade},sysdate,#{ipaddr})
+	</insert>
+	<select id="listData" resultType="gb" parameterType="java.util.Map">
+		select * from (select rownum rn, aa.* from
+		(select * from guestbook
+		<where>
+	     	<if test="word!=null and field=='name'">
+	     		name like '%${word}%'
+	     	</if>
+	     	<if test="word!=null and field=='content'">
+	     		content like '%${word}%'
+	     	</if>
+	     </where>
+		 order by num desc)aa)
+		where rn between #{startRow} and #{endRow}
+		
+	</select>
+	<select id="countData" resultType="int">
+		select count(*) from guestbook
+		<where>
+	     	<if test="word!=null and field=='name'">
+	     		name like '%${word}%'
+	     	</if>
+	     	<if test="word!=null and field=='content'">
+	     		content like '%${word}%'
+	     	</if>
+	     </where>
+	</select>
+	<select id="getData" parameterType="int" resultType="gb">
+		select * from guestbook where num=#{num}
+	</select>
+	<delete id="deleteData" parameterType="int">
+		delete from guestbook where num=#{num}
+	</delete>
+</mapper>
