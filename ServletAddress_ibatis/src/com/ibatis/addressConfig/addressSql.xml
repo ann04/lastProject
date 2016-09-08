@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap
+PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="address">
+<typeAlias alias="addrVO" type="com.ibatis.addressVO.AddressVO"/>
+<typeAlias alias="zipVO" type="com.ibatis.addressVO.zipCodeVO"/>
+
+<sql id="search">
+<isEqual property="field" compareValue="name">
+name like '%'||#word#||'%'
+</isEqual>
+<isEqual property="field" compareValue="tel">
+tel like '%'||#word#||'%'
+</isEqual>
+</sql>
+
+
+<!-- insert -->
+<insert id="insertData" parameterClass="addrVO">
+insert into jqueryaddr 
+values(jqueryaddr_seq.nextval,#name#,#tel#,#zipcode#,#addr#)
+</insert>
+
+<!-- list -->
+<select id="listData" resultClass="addrVO">
+select *from jqueryaddr
+
+</select>
+
+<!-- count -->
+<select id="countData" resultClass="int">
+select count(*) from jqueryaddr
+</select>
+
+<!-- view -->
+<select id="viewData" resultClass="addrVO" parameterClass="int">
+select *from jqueryaddr where num=#num#
+</select>
+
+<!-- zip -->
+<select id="zipData" parameterClass="String" resultClass="zipVO" >
+<!-- select *from zipcode where dong like '%'||#dong#||'%' -->
+select *from zipcode where dong like '%$dong$%'
+</select>
+
+<!-- search -->
+<select id="searchData" resultClass="addrVO" parameterClass="java.util.Map">
+select *from jqueryaddr where 
+<isEqual property="field" compareValue="name">
+name like '%'||#word#||'%'
+</isEqual>
+<isEqual property="field" compareValue="tel">
+tel like '%'||#word#||'%'
+</isEqual>
+</select>
+
+<select id="searchCount" resultClass="int" parameterClass="java.util.Map">
+select count(*)from jqueryaddr where
+<include refid="search"/>
+</select>
+
+<!-- delete -->
+<delete id="deleteData" parameterClass="int">
+delete from jqueryaddr where num=#num#
+
+</delete>
+
+<!-- update -->
+<update id="updateData" parameterClass="addrVO">
+update jqueryaddr set tel=#tel#, zipcode=#zipcode#, addr=#addr# where num=#num#
+</update>
+</sqlMap>
