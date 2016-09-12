@@ -25,8 +25,8 @@
 		</div>
 		<ul>
 			<li>
-				<a href="/resources/movieview.go?mid=11">
-					<img src="images/movie_image1.jpg" alt="">
+				<a href="movieview.go?mid=11">
+					<img src="/resources/images/movie_image1.jpg" alt="">
 					<span>터널</span>
 				</a>
 			</li>

@@ -61,7 +61,6 @@ input[type=checkbox]:checked + label:before {
 	<input type="hidden" name="mid" value="${mid}">
 	<input type="hidden" name=cid value="${cid}">
 	<input type="hidden" name="viewdate" value="${viewdate}">
-	${mid}/${cid}/${viewdate}<br>
 	
 	<h3><table border="1">
 	<tr>

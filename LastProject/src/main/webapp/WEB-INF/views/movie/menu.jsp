@@ -71,7 +71,14 @@
 				$('.layer').fadeOut();
 				e.preventDefault();
 			});	
-	}      
+	} 
+	function loginCheck(userId){
+		/* if(userId==null){
+			alert("로그인 후 예매 가능합니다");
+			return false;
+		} */
+		location.href="reserveview";
+	}
 </script>
 	
 	
@@ -86,10 +93,10 @@
 				<a href="/">home</a>
 			</li>
 			<li>
-				<a href="movieall.go">movie</a>
+				<a href="movieall">movie</a>
 			</li>
 			<li>
-				<a href="reserveview">reservation</a>
+				<a href="#" onclick="loginCheck(${userId})">reservation</a>
 			</li>
 			<li>
 				<a href="blog.html">event</a>
