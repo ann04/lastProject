@@ -6,6 +6,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+<script>
+	function perCnt(perCnt){
+		alert(perCnt);
+		var cnt=1;
+		if(cnt==perCnt){
+			alert("선택 된 명수가 초과되었습니다.");
+			return false;
+		}
+		cnt++;
+	}
+</script>
 <style type="text/css">
 	
 input[type=checkbox] {  

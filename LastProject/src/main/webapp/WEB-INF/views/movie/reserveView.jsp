@@ -94,8 +94,7 @@
 	} 
 	
 	function resultV(){
-		data ="mid="+mid+"&cid="+$(".mc").attr("id")+"&viewdate="
-		+dt+" "+time+"&pcnt="+perCnt;
+		data ="mid="+mid+"&cid="+$(".mc").attr("id")+"&viewdate="+dt+" "+time+"&pcnt="+perCnt;
 		location.href="reserveseat?"+data;
 	}
 

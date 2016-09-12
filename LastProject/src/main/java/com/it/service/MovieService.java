@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.it.model.MCJoinVO;
 import com.it.model.MovieVO;
+import com.it.model.SeatCheck;
 import com.it.model.TheaterVO;
 import com.it.persistence.MovieDAO;
 
@@ -32,7 +33,7 @@ public class MovieService {
 	public MovieVO movieView(int mid){
 		return dao.movieView("movView", mid);
 	}
-	public List<String> getSnum(HashMap<String, Object> hm){
-		return dao.getSnum("snumData",hm);
+	public List<String> getSnum(SeatCheck sc){
+		return dao.getSnum("snumData",sc);
 	}
 }
