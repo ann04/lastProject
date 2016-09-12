@@ -1,5 +1,8 @@
 package com.it.myapp;
 
-public class MemberController {
+import org.springframework.stereotype.Controller;
 
+@Controller(value="memeber/*")
+public class MemberController {
+	
 }
