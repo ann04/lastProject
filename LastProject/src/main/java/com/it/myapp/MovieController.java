@@ -49,13 +49,11 @@ public class MovieController {
 	}
 	
 	@RequestMapping(value="/reserveseat", method=RequestMethod.GET)
-	public String reserveSeat(Model model, SeatCheck sc){
-		HashMap<String, Object> hm = new HashMap<String, Object>();
-		hm.put("cid", sc.getCid());
-		hm.put("viewDate", sc.getViewDate());
-		sc.setSnums(service.getSnum(hm));
-		model.addAttribute("hm",sc.getSeat());
-		model.addAttribute("perCnt",sc.getPerCnt());
+	public String reserveSeat(Model model, SeatCheck sc,int pcnt,String viewdate){
+		sc.setPCnt(pcnt);
+		sc.setViewDate(viewdate);
+		sc.setSnums(service.getSnum(sc));
+		model.addAttribute("hm",sc);
 		return "/movie/reserveSeat";
 		
 	}

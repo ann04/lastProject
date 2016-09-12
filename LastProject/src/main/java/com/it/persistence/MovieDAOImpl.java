@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.it.model.MCJoinVO;
 import com.it.model.MovieVO;
+import com.it.model.SeatCheck;
 import com.it.model.TheaterVO;
 @Repository
 public class MovieDAOImpl implements MovieDAO{
@@ -43,8 +44,8 @@ public class MovieDAOImpl implements MovieDAO{
 	}
 
 	@Override
-	public List<String> getSnum(String id, HashMap<String, Object> hm) {
-		return session.selectList(id,hm);
+	public List<String> getSnum(String id, SeatCheck sc) {
+		return session.selectList(id,sc);
 	}
 
 }

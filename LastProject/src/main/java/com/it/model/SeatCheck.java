@@ -7,7 +7,7 @@ import java.util.List;
 public class SeatCheck {
 	private int mid;
 	private int cid;
-	private int perCnt;
+	private int pcnt;
 	private String viewdate;
 	private List<String> snums;
 	
@@ -24,11 +24,11 @@ public class SeatCheck {
 	public void setCid(int cid) {
 		this.cid = cid;
 	}
-	public int getPerCnt() {
-		return perCnt;
+	public int getPCnt() {
+		return pcnt;
 	}
-	public void setPerCnt(int perCnt) {
-		this.perCnt = perCnt;
+	public void setPCnt(int pcnt) {
+		this.pcnt = pcnt;
 	}
 	public List<String> getSnums() {
 		return snums;
@@ -42,6 +42,7 @@ public class SeatCheck {
 	public void setViewDate(String viewdate) {
 		this.viewdate = viewdate;
 	}
+	
 	public HashMap<Integer,String> getSeat(){
 		String snum="";
 		int cnt=0, totCnt=-1;
