@@ -98,10 +98,7 @@
 		+dt+" "+time+"&pcnt="+perCnt;
 		location.href="reserveseat?"+data;
 	}
-	
-	function sendReserve(){
-		location.href="reserveseat?"+data;
-	}
+
 </script>
 </head>
 <body>

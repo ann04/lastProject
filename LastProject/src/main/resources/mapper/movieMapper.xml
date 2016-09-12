@@ -65,6 +65,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="cinema" parameterType="String" resultType="join">
 		select m.title,t.tname,c.cname,r.*
 		from movie m, theater t, cinema c, reservation r
-		where id=#id# and m.mid=r.mid and t.tid=c.tid and r.cid=c.cid
+		where id=#{id} and m.mid=r.mid and t.tid=c.tid and r.cid=c.cid
 	</select>
 </mapper>

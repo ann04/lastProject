@@ -6,12 +6,11 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.it.model.MovieVO;
+import com.it.model.SeatCheck;
 import com.it.model.TheaterVO;
 import com.it.service.MovieService;
 @Controller
@@ -50,16 +49,23 @@ public class MovieController {
 	}
 	
 	@RequestMapping(value="/reserveseat", method=RequestMethod.GET)
-	public String reserveSeat(Model model){
-		
+	public String reserveSeat(Model model, SeatCheck sc){
+		HashMap<String, Object> hm = new HashMap<String, Object>();
+		hm.put("cid", sc.getCid());
+		hm.put("viewDate", sc.getViewDate());
+		sc.setSnums(service.getSnum(hm));
+		model.addAttribute("hm",sc.getSeat());
+		model.addAttribute("perCnt",sc.getPerCnt());
 		return "/movie/reserveSeat";
 		
 	}
+	
 	@RequestMapping(value="/movieall", method=RequestMethod.GET)
 	public String movieAll(Model model){
 		model.addAttribute("mv",service.movieAll());
 		return "/movie/movieAllView";
 	}
+	
 	@RequestMapping(value="/movieview", method=RequestMethod.GET)
 	public String movieView(Model model, int mid){
 		model.addAttribute("mov",service.movieView(mid));
