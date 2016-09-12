@@ -25,4 +25,9 @@ public class MovieDAOImpl implements MovieDAO{
 		return session.selectList(id);
 	}
 
+	@Override
+	public List<TheaterVO> theaterView(String id, int mid) {
+		return session.selectList(id,mid);
+	}
+
 }

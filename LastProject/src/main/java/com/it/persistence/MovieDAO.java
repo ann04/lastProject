@@ -10,4 +10,5 @@ import com.it.model.TheaterVO;
 public interface MovieDAO {
 	public List<MovieVO> movieAll(String id);
 	public List<TheaterVO> theaterAll(String id);
+	public List<TheaterVO> theaterView(String id, int mid);
 }

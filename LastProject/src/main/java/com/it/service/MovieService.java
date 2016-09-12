@@ -21,4 +21,7 @@ public class MovieService {
 	public List<TheaterVO> theaterAll(){
 		return dao.theaterAll("tAll");
 	};
+	public List<TheaterVO> theaterView(int mid){
+		return dao.theaterView("tView",mid);
+	};
 }
