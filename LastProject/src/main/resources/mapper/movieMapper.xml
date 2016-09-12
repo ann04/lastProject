@@ -3,5 +3,68 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.it.mapper.movieMapper">
-
+	<!-- 영화관 가져오기 -->
+	<select id="tAll" resultType="tv">
+		select * from theater
+	</select>
+	<!-- 영화목록 가져오기 -->
+	<select id="mAll" resultType="mov">
+		select * from movie
+	</select>
+	<!-- 해당영화의 영화관 -->
+	<select id="tView" resultType="tv" parameterType="int">
+		select t.* from theater t, 
+		(select distinct tid from cinema c, 
+		(select cid from mov_Cin where mid=#mid#) mc
+		where c.cid=mc.cid) tt where t.tid=tt.tid
+	</select>
+	<!-- 해당 영화관/영화의 상영관 -->
+	<select id="cinData" parameterType="java.util.Map" resultType="mcJoin">
+		select c.*, mc.mid from cinema c, mov_cin mc 
+		where c.cid=mc.cid and tid=#tid# and mid=#mid# order by c.cid
+	</select>
+	
+	<!-- 영화 상세보기 -->
+	<select id="movView" resultType="mov" parameterType="int">
+		select * from movie where mid=#mid#
+	</select>
+	
+	
+	<!-- 예약된 좌석의 개수 -->
+	<select id="snumCount" parameterType="java.util.Map" resultType="int">
+		select count(snum) from reservation where cid=#cid# and viewdate=#viewdate#
+	</select>
+	
+	<!-- 예약된 좌석 번호 가져오기 -->
+	<select id="snumData" parameterType="java.util.Map" resultType="String">
+		select snum from reservation where cid=#cid# and viewdate=#viewdate# order by snum
+	</select>
+	<!-- 예매하기 -->
+	<insert id="insertRev" parameterType="rv">
+		insert into reservation 
+		values(reservation_seq.nextval,#mid#,#snum#,#viewdate#,#cid#,#id#)
+	</insert>
+	<!-- 상영관 -->
+	<select id="cinD" resultType="cin" parameterType="int">
+		select * from cinema where tid=#tid#
+	</select>
+	
+	<!-- 영화 등록 -->
+	<insert id="insertData" parameterType="mov">
+		insert into movie values(movie_seq.nextval, #title#,#img#,#director#,#content#)
+	</insert>
+	<!-- 영화 아이디 -->
+	<select id="movMid" parameterType="String" resultType="int">
+		select mid from movie where img=#img#
+	</select>
+	<!-- 영화 등록 -->
+	<insert id="mov_cid" parameterType="java.util.Map">
+		insert into mov_cin values(#mid#,#cid#)
+	</insert>
+	<!-- 영화관 검색 -->
+	<select id="cinema" parameterType="String" resultType="join">
+		select m.title,t.tname,c.cname,r.*
+		from movie m, theater t, cinema c, reservation r
+		where id=#id# and m.mid=r.mid and t.tid=c.tid and r.cid=c.cid
+	</select>
 </mapper>

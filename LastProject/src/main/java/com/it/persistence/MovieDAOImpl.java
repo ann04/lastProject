@@ -1,5 +1,28 @@
 package com.it.persistence;
 
-public class MovieDAOImpl {
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
+
+import com.it.model.MovieVO;
+import com.it.model.TheaterVO;
+@Repository
+public class MovieDAOImpl implements MovieDAO{
+	
+	@Inject
+	private SqlSession session;
+	
+	@Override
+	public List<MovieVO> movieAll(String id) {
+		return session.selectList(id);
+	}
+
+	@Override
+	public List<TheaterVO> theaterAll(String id) {
+		return session.selectList(id);
+	}
 
 }

@@ -4,6 +4,11 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">  
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.test.mytest.model.MemberVO" alias="vo"/>
+		<typeAlias alias="mov" type="com.it.model.MovieVO"/>
+		<typeAlias alias="rv" type="com.it.model.ReservationVO"/>
+		<typeAlias alias="tv" type="com.it.model.TheaterVO"/>
+		<typeAlias alias="mcJoin" type="com.it.model.MCJoinVO"/>
+		<typeAlias alias="cin" type="com.it.model.CinemaVO"/>
+		<typeAlias alias="join" type="com.it.model.AllJoinVO"/>
 	</typeAliases>
 </configuration>
