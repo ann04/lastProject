@@ -42,4 +42,9 @@ public class MovieDAOImpl implements MovieDAO{
 		return session.selectOne(id,mid);
 	}
 
+	@Override
+	public List<String> getSnum(String id, HashMap<String, Object> hm) {
+		return session.selectList(id,hm);
+	}
+
 }

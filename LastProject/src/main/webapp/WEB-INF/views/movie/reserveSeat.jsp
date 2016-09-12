@@ -80,7 +80,7 @@ input[type=checkbox]:checked + label:before {
 	<br>
 	</c:if>
 	<c:if test="${i.value=='□'}">
-	<input type="checkbox" id="${i.key}" value="${i.key}" name="snum" class="checkbox-style" /><label for="${i.key}"></label>
+	<input type="checkbox" id="${i.key}" value="${i.key}" name="snum" class="checkbox-style" onclick="perCnt(${perCnt})"/><label for="${i.key}"></label>
 	</c:if>
 	<c:if test="${i.value=='■'}">
 	<input type="checkbox" id="f_r" class="checkbox-style" checked="checked" disabled="disabled"/><label for="f_r"></label>

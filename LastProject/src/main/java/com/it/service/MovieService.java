@@ -32,4 +32,7 @@ public class MovieService {
 	public MovieVO movieView(int mid){
 		return dao.movieView("movView", mid);
 	}
+	public List<String> getSnum(HashMap<String, Object> hm){
+		return dao.getSnum("snumData",hm);
+	}
 }
