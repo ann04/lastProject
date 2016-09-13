@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.it.model.AllJoinVO;
+import com.it.model.ReservationVO;
 import com.it.model.SeatCheck;
 import com.it.model.TheaterVO;
 import com.it.service.MovieService;
@@ -61,8 +63,7 @@ public class MovieController {
 	}
 	
 	@RequestMapping(value="/reservation", method=RequestMethod.POST)
-	public String reservation(@ModelAttribute int mid,@ModelAttribute int cid){
-		System.out.println(mid+"/"+cid);
+	public String reservation(String mid,String cid,String viewdate, String[] snum){
 		return null;
 	}
 	

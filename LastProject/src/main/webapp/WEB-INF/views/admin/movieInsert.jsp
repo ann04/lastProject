@@ -13,22 +13,10 @@
 <script>
 	$(document).ready(function(){
 		 $("#theater").change(function(){
-			 $.get("cinemaResult.jsp",{"tid":$(this).val()},//zipCheckPro.jsp?dong=$("#dong").val()
+			 $.get("cinemaResult?tid="+$(this).val(),
 					function(data){
-					
-					data=$.parseJSON(data);
-					var htmlStr = "";
-					
-					htmlStr+="<select onchange='cidSend(this.value)'>";
-					htmlStr+="<option value='0'>선택하세요</option>"
-					for(var i=0;i<data.length;i++){
-						addr=data[i].sido+" "+data[i].gugun+" "+data[i].dong+" "+data[i].bunji;
-						htmlStr+="<option value='"+data[i].cid+"'>"+data[i].cname+"</option>";	
-					}
-					htmlStr+="</select>";
-					$(".cinema").html(htmlStr);
-					
-				});
+						$(".cinema").html(data);
+			});
 		 });
 	});
 	function readURL(input) {

@@ -47,8 +47,7 @@
 					$('.layer').fadeOut(); //'bg' 클래스가 존재하면 레이어를 사라지게 한다.
 					if(cn==1){
 						temp.find('a.jobtn').text("nono");
-						$("#frm").prop("action", "adminlogin.go");
-						alert($("#frm").prop("action"));
+						$("#frm").prop("action", "adminlogin");
 					}
 					$("#frm").submit();
 				}else{
