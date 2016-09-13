@@ -8,14 +8,16 @@
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 <script>
+	var cnt=0;
 	function perCnt(perCnt){
-		alert(perCnt);
-		var cnt=1;
+		cnt=cnt+1;
 		if(cnt==perCnt){
-			alert("선택 된 명수가 초과되었습니다.");
+			$(".checkbox-style").attr("disabled","disabled");
 			return false;
+		}else if(cnt>perCnt){
+			alert("선택 된 명수가 초과되었습니다.");
 		}
-		cnt++;
+		return false;
 	}
 </script>
 <style type="text/css">
@@ -69,7 +71,7 @@ input[type=checkbox]:checked + label:before {
 </style>
 </head>
 <body>
-<form action="reservation.go" method="post">
+<form action="reservation" method="post">
 	<input type="hidden" name="mid" value="${mid}">
 	<input type="hidden" name=cid value="${cid}">
 	<input type="hidden" name="viewdate" value="${viewdate}">
