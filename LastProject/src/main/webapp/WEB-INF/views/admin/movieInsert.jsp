@@ -74,7 +74,7 @@
 
 <body>
 <jsp:include page="adminHeader.jsp"/>
-<form action="movieinsert.go" method="post" enctype="multipart/form-data">	
+<form action="movieinsert" method="post" enctype="multipart/form-data">	
 	<div id="body">
 		<h1><span>An's 영화 등록</span></h1>
 		
