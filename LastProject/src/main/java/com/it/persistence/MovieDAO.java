@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.it.model.MCJoinVO;
 import com.it.model.MovieVO;
+import com.it.model.ReplyVO;
 import com.it.model.TheaterVO;
 @Repository
 public interface MovieDAO {
@@ -15,4 +16,8 @@ public interface MovieDAO {
 	public List<TheaterVO> theaterView(String id, int mid);
 	public List<MCJoinVO> reserveDate(String id, HashMap<String,Integer> hm);
 	public MovieVO movieView(String id, int mid);
+	public void insertreply(ReplyVO vo);
+	public List<ReplyVO> listreply(HashMap<String,Object> hm) throws Exception;
+	public int getCount(int mid) throws Exception;
+
 }

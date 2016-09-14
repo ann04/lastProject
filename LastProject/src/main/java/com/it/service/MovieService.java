@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.it.model.MCJoinVO;
 import com.it.model.MovieVO;
+import com.it.model.ReplyVO;
 import com.it.model.TheaterVO;
 import com.it.persistence.MovieDAO;
 
@@ -31,5 +32,17 @@ public class MovieService {
 	}
 	public MovieVO movieView(int mid){
 		return dao.movieView("movView", mid);
+	}
+	public void insertreply(ReplyVO vo){
+		dao.insertreply(vo);
+	}
+	public int getCount(int mid) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.getCount(mid);
+	}
+
+	public List<ReplyVO> listreply(HashMap<String,Object> hm) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.listreply(hm);
 	}
 }

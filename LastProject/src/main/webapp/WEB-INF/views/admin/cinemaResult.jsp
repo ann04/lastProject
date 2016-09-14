@@ -1,3 +1,4 @@
+<%@page import="com.it.model.CinemaVO"%>
 <%@page import="org.json.simple.JSONObject"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="com.movies.vo.CinemaVO"%>

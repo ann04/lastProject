@@ -67,4 +67,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from movie m, theater t, cinema c, reservation r
 		where id=#id# and m.mid=r.mid and t.tid=c.tid and r.cid=c.cid
 	</select>
+	
+	<insert id="insertreply" parameterType="rvo">
+insert into reply
+	values(reply_seq.nextval, 'aaa', #{content},1, to_char(sysdate,'YYYY-MM-DD HH24:MI:SS'), 
+	0,0,0,'1',#{mid})
+			
+</insert>
+
+<select id="countData" parameterType="Int" resultType="Int">
+		select count(*) from reply where mid=#{mid}
+	</select>
+	<select id="listreply" parameterType="java.util.Map" resultType="rvo"> 
+	select * from (select rownum rn, aa.* from
+(select * from reply where mid=#{mid}
+	order by repid desc) aa)
+	where rn between #{startRow} and #{endRow}
+	 </select>
+	
 </mapper>

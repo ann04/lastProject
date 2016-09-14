@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.it.model.MCJoinVO;
 import com.it.model.MovieVO;
+import com.it.model.ReplyVO;
 import com.it.model.TheaterVO;
 @Repository
 public class MovieDAOImpl implements MovieDAO{
@@ -41,5 +42,27 @@ public class MovieDAOImpl implements MovieDAO{
 	public MovieVO movieView(String id, int mid) {
 		return session.selectOne(id,mid);
 	}
+
+	
+	@Override
+	public int getCount(int mid) throws Exception {
+		// TODO Auto-generated method stub
+		
+		return session.selectOne("countData",mid);
+	}
+	public List<ReplyVO> listreply(HashMap<String,Object> hm) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList("listreply",hm);
+	}
+
+	@Override
+	public void insertreply(ReplyVO vo) {
+		// TODO Auto-generated method stub
+		
+			session.insert("insertreply",vo);
+		
+	}
+
+
 
 }
