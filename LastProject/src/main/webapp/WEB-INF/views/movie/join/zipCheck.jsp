@@ -34,7 +34,7 @@ function sendIt(){
 		alert("동이름을 입력하세요");
 		return false;
 	}
-	$.get("zipCheck.iba",{"dong" : $("#dong").val() },
+	$.get("zipSearch",{"dong" : $("#dong").val() },
 	         function(data){
 		          $("#area").html(data);
 	       }		

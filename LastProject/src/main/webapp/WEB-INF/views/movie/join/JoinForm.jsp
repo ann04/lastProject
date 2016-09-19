@@ -22,7 +22,8 @@
  <script>
  $(document).ready(function(){
 	 $("#btnZip").click(function(){
-		 window.open("zipCheck.jsp","","width=700 height=500 scrollbars=yes");
+		 
+		 window.open("zipCheckform","","width=700 height=500 scrollbars=yes");
 	 });
 
   $('#pwd').keyup(function(){
@@ -52,7 +53,7 @@
 <br>
 <br>
 <h2 align="center">가입정보입력</h2>
-<form action="join.iba" method="post" >
+<form action="join" method="post" >
 <table border="1" width="400" height="400" align="center">
 	<tr>
 		<td><input type="text" id="id" title="아이디 입력"
@@ -60,7 +61,7 @@ maxlength="40" name="id" placeholder="아이디" size="30" /></td>
 	</tr>
 	<tr>		
 		<td><input type="password" id="pwd" title="비밀번호 입력"
-maxlength="40" name="pwd" placeholder="비밀번호 숫자만 사용!" size="30" /></td>
+maxlength="40" name="password" placeholder="비밀번호 숫자만 사용!" size="30" /></td>
 	</tr>
 	<tr>		
 		<td><input type="text" id="repwd" title="비밀번호 재입력"

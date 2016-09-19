@@ -10,5 +10,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="mcJoin" type="com.it.model.MCJoinVO"/>
 		<typeAlias alias="cin" type="com.it.model.CinemaVO"/>
 		<typeAlias alias="join" type="com.it.model.AllJoinVO"/>
+		<typeAlias alias="zip" type="com.it.model.ZipCodeVO"/>
+		<typeAlias alias="member" type="com.it.model.MemberVO"/>
 	</typeAliases>
 </configuration>

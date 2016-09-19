@@ -59,7 +59,7 @@
 			
 			temp.find('a.jobtn').click(function(e){
 				if(bg){
-					location.href="join/JoinForm.jsp";
+					location.href="joinform";
 					$('.layer').fadeOut(); //'bg' 클래스가 존재하면 레이어를 사라지게 한다.
 				}else{
 					temp.fadeOut();

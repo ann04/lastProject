@@ -3,5 +3,13 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.it.mapper.memberMapper">
+<select id="zipView" parameterType="String" resultType="zip">
+select * from zipcode where dong=#{dong}
+</select>
+
+<insert id="insert" parameterType="member">
+insert into teampro values(teampro_seq.nextval,#{name},#{jumin},
+#{zipcode},#{addr},#{tel},#{email},#{id},#{password})
+</insert>
 
 </mapper>
