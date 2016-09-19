@@ -9,7 +9,11 @@ import org.springframework.stereotype.Service;
 
 import com.it.model.MCJoinVO;
 import com.it.model.MovieVO;
+<<<<<<< HEAD
 import com.it.model.ReplyVO;
+=======
+import com.it.model.SeatCheck;
+>>>>>>> branch 'master' of https://github.com/ann04/lastProject.git
 import com.it.model.TheaterVO;
 import com.it.persistence.MovieDAO;
 
@@ -33,6 +37,7 @@ public class MovieService {
 	public MovieVO movieView(int mid){
 		return dao.movieView("movView", mid);
 	}
+<<<<<<< HEAD
 	public void insertreply(ReplyVO vo){
 		dao.insertreply(vo);
 	}
@@ -44,5 +49,9 @@ public class MovieService {
 	public List<ReplyVO> listreply(HashMap<String,Object> hm) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.listreply(hm);
+=======
+	public List<String> getSnum(SeatCheck sc){
+		return dao.getSnum("snumData",sc);
+>>>>>>> branch 'master' of https://github.com/ann04/lastProject.git
 	}
 }

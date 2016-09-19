@@ -6,14 +6,20 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+<<<<<<< HEAD
 
 import com.it.model.MovieVO;
 import com.it.model.ReplyVO;
+=======
+import com.it.model.AllJoinVO;
+import com.it.model.ReservationVO;
+import com.it.model.SeatCheck;
+>>>>>>> branch 'master' of https://github.com/ann04/lastProject.git
 import com.it.model.TheaterVO;
 import com.it.service.MovieService;
 import com.it.service.pageAction;
@@ -55,16 +61,27 @@ public class MovieController {
 	}
 	
 	@RequestMapping(value="/reserveseat", method=RequestMethod.GET)
-	public String reserveSeat(Model model){
-		
+	public String reserveSeat(Model model, SeatCheck sc,int pcnt,String viewdate){
+		sc.setPCnt(pcnt);
+		sc.setViewDate(viewdate);
+		sc.setSnums(service.getSnum(sc));
+		model.addAttribute("hm",sc.getSeat());
+		model.addAttribute("perCnt",sc.getPCnt());
 		return "/movie/reserveSeat";
 		
 	}
+	
+	@RequestMapping(value="/reservation", method=RequestMethod.POST)
+	public String reservation(String mid,String cid,String viewdate, String[] snum){
+		return null;
+	}
+	
 	@RequestMapping(value="/movieall", method=RequestMethod.GET)
 	public String movieAll(Model model){
 		model.addAttribute("mv",service.movieAll());
 		return "/movie/movieAllView";
 	}
+	
 	@RequestMapping(value="/movieview", method=RequestMethod.GET)
 	public String movieView(Model model, int mid){
 		model.addAttribute("mov",service.movieView(mid));

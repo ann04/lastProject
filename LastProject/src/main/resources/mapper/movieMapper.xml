@@ -36,7 +36,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 예약된 좌석 번호 가져오기 -->
-	<select id="snumData" parameterType="java.util.Map" resultType="String">
+	<select id="snumData" parameterType="sc" resultType="String">
 		select snum from reservation where cid=#{cid} and viewdate=#{viewdate} order by snum
 	</select>
 	<!-- 예매하기 -->
@@ -65,7 +65,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="cinema" parameterType="String" resultType="join">
 		select m.title,t.tname,c.cname,r.*
 		from movie m, theater t, cinema c, reservation r
-		where id=#id# and m.mid=r.mid and t.tid=c.tid and r.cid=c.cid
+		where id=#{id} and m.mid=r.mid and t.tid=c.tid and r.cid=c.cid
 	</select>
 	
 	<insert id="insertreply" parameterType="rvo">

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@page import="com.it.model.CinemaVO"%>
 <%@page import="org.json.simple.JSONObject"%>
 <%@page import="java.sql.SQLException"%>
@@ -7,28 +8,15 @@
 <%@page import="com.ibatis.sqlmap.client.SqlMapClient"%>
 <%@page import="com.movies.config.Config"%>
 <%@page import="java.util.ArrayList"%>
+=======
+>>>>>>> branch 'master' of https://github.com/ann04/lastProject.git
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	request.setCharacterEncoding("utf-8");
-	int tid = Integer.parseInt(request.getParameter("tid"));
-	
-	SqlMapClient sqlMap = Config.getSqlMapInstance();
-	
-	try {
-		
-		List<CinemaVO> cv= sqlMap.queryForList("cinD",tid);
-		JSONArray jarr =new JSONArray();
-		
-		for(CinemaVO c:cv){
-			JSONObject obj = new JSONObject();
-			obj.put("cid",c.getCid());
-			obj.put("cname",c.getCname());
-			jarr.add(obj);
-		}
-		out.println(jarr.toString());
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}	
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<select onchange='cidSend(this.value)'>
+	<option value='0'>선택하세요</option>
+	<c:forEach var="c" items="${cin}">
+		<option value="${c.cid}">c.cname</option>
+	</c:forEach>
+</select>
+						

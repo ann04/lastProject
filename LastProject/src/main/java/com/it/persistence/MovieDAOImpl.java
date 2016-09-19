@@ -10,7 +10,11 @@ import org.springframework.stereotype.Repository;
 
 import com.it.model.MCJoinVO;
 import com.it.model.MovieVO;
+<<<<<<< HEAD
 import com.it.model.ReplyVO;
+=======
+import com.it.model.SeatCheck;
+>>>>>>> branch 'master' of https://github.com/ann04/lastProject.git
 import com.it.model.TheaterVO;
 @Repository
 public class MovieDAOImpl implements MovieDAO{
@@ -43,6 +47,7 @@ public class MovieDAOImpl implements MovieDAO{
 		return session.selectOne(id,mid);
 	}
 
+<<<<<<< HEAD
 	
 	@Override
 	public int getCount(int mid) throws Exception {
@@ -64,5 +69,11 @@ public class MovieDAOImpl implements MovieDAO{
 	}
 
 
+=======
+	@Override
+	public List<String> getSnum(String id, SeatCheck sc) {
+		return session.selectList(id,sc);
+	}
+>>>>>>> branch 'master' of https://github.com/ann04/lastProject.git
 
 }

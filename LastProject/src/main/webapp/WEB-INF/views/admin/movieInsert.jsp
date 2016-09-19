@@ -13,22 +13,10 @@
 <script>
 	$(document).ready(function(){
 		 $("#theater").change(function(){
-			 $.get("cinemaResult.jsp",{"tid":$(this).val()},//zipCheckPro.jsp?dong=$("#dong").val()
+			 $.get("cinemaResult?tid="+$(this).val(),
 					function(data){
-					
-					data=$.parseJSON(data);
-					var htmlStr = "";
-					
-					htmlStr+="<select onchange='cidSend(this.value)'>";
-					htmlStr+="<option value='0'>선택하세요</option>"
-					for(var i=0;i<data.length;i++){
-						addr=data[i].sido+" "+data[i].gugun+" "+data[i].dong+" "+data[i].bunji;
-						htmlStr+="<option value='"+data[i].cid+"'>"+data[i].cname+"</option>";	
-					}
-					htmlStr+="</select>";
-					$(".cinema").html(htmlStr);
-					
-				});
+						$(".cinema").html(data);
+			});
 		 });
 	});
 	function readURL(input) {
@@ -74,7 +62,7 @@
 
 <body>
 <jsp:include page="adminHeader.jsp"/>
-<form action="movieinsert.go" method="post" enctype="multipart/form-data">	
+<form action="movieinsert" method="post" enctype="multipart/form-data">	
 	<div id="body">
 		<h1><span>An's 영화 등록</span></h1>
 		

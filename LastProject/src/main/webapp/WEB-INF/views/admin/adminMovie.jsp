@@ -17,14 +17,14 @@
 </head>
 <body>
 <jsp:include page="adminHeader.jsp"/>
-	<input type="button" value="등록하기" onclick="location.href='moviethea.go'">
+	<input type="button" value="등록하기" onclick="location.href='moviethea'">
 	<div id="body">
 		<h1><span>movie</span></h1>
 		<ul class="gallery">
 			<c:forEach items="${mv}" var="m">
 				<li>
-					<a href="adminmovieview.go?mid=${m.mid}">
-						<img src="../movie/images/${m.img}" alt=""><br>
+					<a href="adminmovieview?mid=${m.mid}">
+						<img src="/resources/images/${m.img}" alt=""><br>
 						${m.title}
 					</a>
 				</li>

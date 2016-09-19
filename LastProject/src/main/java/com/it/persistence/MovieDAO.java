@@ -7,7 +7,11 @@ import org.springframework.stereotype.Repository;
 
 import com.it.model.MCJoinVO;
 import com.it.model.MovieVO;
+<<<<<<< HEAD
 import com.it.model.ReplyVO;
+=======
+import com.it.model.SeatCheck;
+>>>>>>> branch 'master' of https://github.com/ann04/lastProject.git
 import com.it.model.TheaterVO;
 @Repository
 public interface MovieDAO {
@@ -16,8 +20,12 @@ public interface MovieDAO {
 	public List<TheaterVO> theaterView(String id, int mid);
 	public List<MCJoinVO> reserveDate(String id, HashMap<String,Integer> hm);
 	public MovieVO movieView(String id, int mid);
+<<<<<<< HEAD
 	public void insertreply(ReplyVO vo);
 	public List<ReplyVO> listreply(HashMap<String,Object> hm) throws Exception;
 	public int getCount(int mid) throws Exception;
 
+=======
+	public List<String> getSnum(String id, SeatCheck sc);
+>>>>>>> branch 'master' of https://github.com/ann04/lastProject.git
 }
