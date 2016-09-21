@@ -6,6 +6,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+<script>
+	var cnt=0;
+	function perCnt(perCnt){
+		cnt=cnt+1;
+		if(cnt==perCnt){
+			$(".checkbox-style").attr("disabled","disabled");
+			return false;
+		}else if(cnt>perCnt){
+			alert("선택 된 명수가 초과되었습니다.");
+		}
+		return false;
+	}
+</script>
 <style type="text/css">
 	
 input[type=checkbox] {  
@@ -57,11 +71,10 @@ input[type=checkbox]:checked + label:before {
 </style>
 </head>
 <body>
-<form action="reservation.go" method="post">
+<form action="reservation" method="post">
 	<input type="hidden" name="mid" value="${mid}">
 	<input type="hidden" name=cid value="${cid}">
 	<input type="hidden" name="viewdate" value="${viewdate}">
-	${mid}/${cid}/${viewdate}<br>
 	
 	<h3><table border="1">
 	<tr>
@@ -81,7 +94,7 @@ input[type=checkbox]:checked + label:before {
 	<br>
 	</c:if>
 	<c:if test="${i.value=='□'}">
-	<input type="checkbox" id="${i.key}" value="${i.key}" name="snum" class="checkbox-style" /><label for="${i.key}"></label>
+	<input type="checkbox" id="${i.key}" value="${i.key}" name="snum" class="checkbox-style" onclick="perCnt(${perCnt})"/><label for="${i.key}"></label>
 	</c:if>
 	<c:if test="${i.value=='■'}">
 	<input type="checkbox" id="f_r" class="checkbox-style" checked="checked" disabled="disabled"/><label for="f_r"></label>

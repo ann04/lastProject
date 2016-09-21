@@ -1,5 +1,6 @@
 package com.it.persistence;
 
+import java.util.HashMap;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -24,6 +25,30 @@ public class MemberDAOImpl implements MemberDAO{
 	public void insert(String id, MemberVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		session.insert(id,vo);
+	}
+
+	@Override
+	public String usercheck(String id, HashMap<String, String> hm) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectOne(id,hm);
+	}
+
+	@Override
+	public MemberVO passcheck(String id, HashMap<String, String> hm) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectOne(id,hm);
+	}
+
+	@Override
+	public void update(String id, MemberVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		session.update(id,vo);
+	}
+
+	@Override
+	public void delete(String id,String userid) throws Exception {
+		// TODO Auto-generated method stub
+		session.delete(id,userid);
 	}
 	
 	

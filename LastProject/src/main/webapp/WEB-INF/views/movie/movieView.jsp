@@ -30,8 +30,7 @@ $(document).ready(function(){
 
 function getData(pageNum){
 	var mid = $("#mid").val();
-	$("#results").load("boardlist.go", //"list.do?pageNum="+pageNum
-			{"pageNum" :pageNum, "mid":mid},
+	$("#results").load("listreply?pageNum="+pageNum+"&mid="+mid,
 			function(data){
 				$("#results").html(data);
 			});
@@ -42,7 +41,7 @@ function sendIt(){
 	var mid = $("#mid").val();
 	$.ajax({
 		type:"get",
-		url:"boardinsert.go",
+		url:"insertreply",
 		data: "content="+content+"&mid="+mid,
 		success:function(data){
 			$("#results").html(data);
@@ -85,7 +84,7 @@ function show(){
 		
 	</div>
 
-	<form action="boardinsert.go" method="post" name="form">
+	<form action="insertreply" method="get" name="form">
 	<input type="hidden" id="mid" name="mid" value="${mov.mid}">
 		<table align="center">
 		
@@ -94,6 +93,8 @@ function show(){
 			<td align="left">
 				<textarea id="content" name="content" rows=4 cols=80 maxlength=800 ></textarea>
 			</td>
+		
+			
 			<td align="center"><input type="button" value="입력" id="submit">
 		</td>
 		</tr>
@@ -104,6 +105,9 @@ function show(){
 	<br><br><br>
 	<!-- 결과 출력 부분 -->
 	<div id="results" ></div>
+
 	<jsp:include page="footer.jsp"/>
+
 </body>
+
 </html>

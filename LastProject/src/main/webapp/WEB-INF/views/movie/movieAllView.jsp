@@ -22,7 +22,7 @@
 		<ul class="gallery">
 			<c:forEach items="${mv}" var="m">
 				<li>
-					<a href="movieview.go?mid=${m.mid}">
+					<a href="movieview?mid=${m.mid}">
 						<img src="/resources/images/${m.img}" alt=""><br>
 						${m.title}
 					</a>

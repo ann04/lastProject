@@ -26,7 +26,7 @@
 			$(this).css("background","#dddddd");
 			mid=$(this).attr("id");
 			title=$(this).text();
-			$(".reserveInfo img").prop("src","images/"+$(this).prop("title"));
+			$(".reserveInfo img").prop("src","/resources/images/"+$(this).prop("title"));
 			$(".reserveInfo b").eq(0).text(title);
 			viewThea();
 		});
@@ -38,7 +38,7 @@
 	});
 	//영화를 선택 했을 때 영화에 따른 영화관 불러오기
 	function viewThea(){
-		$.get("reserveview","mid="+mid,
+		$.get("reserveview?mid="+mid,
 			function(data){
 				$(".cienma_choose").html(data);
 			}
@@ -57,7 +57,7 @@
 	function viewdate(){
 		$.ajax({
 			type:"get",
-			url:"reservedate.go",
+			url:"reservedate",
 			data:"tid="+tid+"&mid="+mid,
 			success:function(data){
 				$(".time_choose").html(data);
@@ -94,14 +94,10 @@
 	} 
 	
 	function resultV(){
-		data ="mid="+mid+"&cid="+$(".mc").attr("id")+"&viewdate="
-		+dt+" "+time+"&pcnt="+perCnt;
-		location.href="reserveseat.go?"+data;
+		data ="mid="+mid+"&cid="+$(".mc").attr("id")+"&viewdate="+dt+" "+time+"&pcnt="+perCnt;
+		location.href="reserveseat?"+data;
 	}
-	
-	function sendReserve(){
-		location.href="reserveseat.go?"+data;
-	}
+
 </script>
 </head>
 <body>

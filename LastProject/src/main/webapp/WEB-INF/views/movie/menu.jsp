@@ -47,8 +47,7 @@
 					$('.layer').fadeOut(); //'bg' 클래스가 존재하면 레이어를 사라지게 한다.
 					if(cn==1){
 						temp.find('a.jobtn').text("nono");
-						$("#frm").prop("action", "adminlogin.go");
-						alert($("#frm").prop("action"));
+						$("#frm").prop("action", "adminlogin");
 					}
 					$("#frm").submit();
 				}else{
@@ -71,7 +70,14 @@
 				$('.layer').fadeOut();
 				e.preventDefault();
 			});	
-	}      
+	} 
+	function loginCheck(userId){
+		/* if(userId==null){
+			alert("로그인 후 예매 가능합니다");
+			return false;
+		} */
+		location.href="reserveview";
+	}
 </script>
 	
 	
@@ -86,16 +92,16 @@
 				<a href="/">home</a>
 			</li>
 			<li>
-				<a href="movieall.go">movie</a>
+				<a href="movieall">movie</a>
 			</li>
 			<li>
-				<a href="reserveview">reservation</a>
+				<a href="#" onclick="loginCheck(${userId})">reservation</a>
 			</li>
 			<li>
 				<a href="blog.html">event</a>
 			</li>
 			
-			<c:if test="${userId==null}">
+			<c:if test="${loginsession==null}">
 			<li>
 				<a href="#" class="btn-example" onclick="layer_open_me('layer2',0);return false;">join</a>
 				<div class="layer">
@@ -105,7 +111,7 @@
 								<div class="pop-conts">
 									<!--content //-->
 									<p class="ctxt mb20">Anscreen<br></p>
-									<form action="login.go" method="post" id="frm">
+									<form action="login" method="post" id="frm">
 									<input type="text" id="id" title="아이디 입력"
 									 maxlength="20" name="id" placeholder="아이디" /><br><br>
 									<input type="password" id="footer-book-pw" title="비밀번호 입력"
@@ -123,12 +129,12 @@
 	</div>		
 			</li>
 			</c:if>
-			<c:if test="${userId!=null}">
+			<c:if test="${loginsession!=null}">
 			<li>
-				<a href="logout.go">logout</a>
+				<a href ="logout">logout</a>
 			</li>
 			<li>
-				<a href="join/myPage.jsp">MyPage</a>
+				<a href="myPage">MyPage</a>
 			</li>
 			</c:if>
 		</ul>

@@ -36,10 +36,10 @@ border:1px solid #2a2c2f; -webkit-border-radius: 3px; -moz-border-radius: 3px;bo
 <body>
 <jsp:include page="menu.jsp"/>
 	<div class="myPage">
-		<img src="../images/myPage.png">
+		<img src="/resources/images/myPage.png">
 	</div>
 	<div align="center">
-		<input type="button" value="회원 정보" class="btn_mem" onclick="location.href='passCheck.jsp'">
+		<input type="button" value="회원 정보" class="btn_mem" onclick="location.href='passCheckform'">
 		<input type="button" value="예매 정보" class="btn_res" onclick="location.href='reservecheck.go'">
 	</div>
 <jsp:include page="footer.jsp"/>

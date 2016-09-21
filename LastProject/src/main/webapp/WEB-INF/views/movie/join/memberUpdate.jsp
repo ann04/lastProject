@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -22,7 +22,7 @@
  <script>
  $(document).ready(function(){
 	 $("#btnZip").click(function(){
-		 window.open("zipCheck.jsp","","width=700 height=500 scrollbars=yes");
+		 window.open("zipCheckform","","width=700 height=500 scrollbars=yes");
 	 });
 
   $('#pwd').keyup(function(){
@@ -41,7 +41,7 @@
 	 });
 	 function checkDel(id){
 		 if(confirm("정말 탈퇴하시겠습니까?")){
-			 location.href="memberdel.go?id="+id;
+			 location.href="memberdel?id="+id;
 		 }
 	 }
  </script>
@@ -57,7 +57,7 @@
 <br>
 <br>
 <h2 align="center">가입정보입력</h2>
-<form action="userupdate.go" method="post" >
+<form action="userupdate" method="post" >
 <table border="1" width="400" height="400" align="center">
 	<tr>
 		<td><input type="text" id="id" title="아이디 입력"
@@ -65,7 +65,7 @@ maxlength="40" name="id" placeholder="아이디" size="30" readonly="readonly" v
 	</tr>
 	<tr>		
 		<td><input type="password" id="pwd" title="변경 비밀번호 입력"
-maxlength="40" name="pwd" placeholder="비밀번호 숫자만 사용!" size="30" /></td>
+maxlength="40" name="password" placeholder="비밀번호 숫자만 사용!" size="30" /></td>
 	</tr>
 	<tr>		
 		<td><input type="text" id="repwd" title="변경 비밀번호 재입력"

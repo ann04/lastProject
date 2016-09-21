@@ -12,4 +12,19 @@ insert into teampro values(teampro_seq.nextval,#{name},#{jumin},
 #{zipcode},#{addr},#{tel},#{email},#{id},#{password})
 </insert>
 
+<select id="usercheck" parameterType="java.util.Map" resultType="String">
+select id from teampro where id=#{id} and password=#{password}
+</select>
+
+<select id="passcheck" parameterType="java.util.Map" resultType="member">
+select * from teampro where id=#{id} and password=#{password}
+</select>
+
+<update id="memupdate" parameterType="member">
+update teampro set name=#{name},jumin=#{jumin},zipcode=#{zipcode},addr=#{addr},tel=#{tel},email=#{email},password=#{password} where id=#{id}
+</update>
+
+<delete id="memdelete" parameterType="String">
+delete from teampro where id=#{userid}
+</delete>
 </mapper>

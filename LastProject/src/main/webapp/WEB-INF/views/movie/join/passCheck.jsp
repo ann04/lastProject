@@ -10,7 +10,8 @@
 <jsp:include page="menu.jsp"/>
 <div id="body">
 		<h1><span>P/W CHECK</span></h1><br><br><br><br>
-		<form action="passcheck.go" method="post">
+		<form action="passcheck" method="post">
+		<input type="hidden" value=${loginsession} name="id">
 			<input type="password" name="password"><br><br>
 			<input type="submit" value="비밀번호확인">
 		</form>
