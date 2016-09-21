@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html>
 <head>
@@ -20,12 +21,13 @@
 				<a href="adminmovieall">movie management</a>
 			</li>
 			<li>
-				<a href="theaterview.go">cinema management</a>
+				<a href="theaterview">cinema management</a>
 			</li>
+			<c:if test="${adloginSession!=null}">
 			<li>
-				<a href="memberview">event</a>
+				<a href="adminlogout">logout</a>
 			</li>
-			
+			</c:if>	
 		</ul>
 	</div>
 </body>

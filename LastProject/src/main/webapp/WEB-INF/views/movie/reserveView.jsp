@@ -113,7 +113,7 @@
 			
 			<!-- 영화/영화관 선택 -->
 			<div class="mov_cin">
-				<div class="movie_choose">
+				<div class="movie_choose"  style="overflow: scroll;">
 					<span>영화선택</span>
 					<c:forEach items="${movie}" var="m">
 						<div id="${m.mid}" title="${m.img}">

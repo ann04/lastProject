@@ -49,18 +49,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from cinema where tid=#{tid}
 	</select>
 	
-	<!-- 영화 등록 -->
-	<insert id="insertData" parameterType="mov">
-		insert into movie values(movie_seq.nextval, #{title},#{img},#{director},#{content})
-	</insert>
-	<!-- 영화 아이디 -->
-	<select id="movMid" parameterType="String" resultType="int">
-		select mid from movie where img=#{img}
-	</select>
-	<!-- 영화 등록 -->
-	<insert id="mov_cid" parameterType="java.util.Map">
-		insert into mov_cin values(#{mid},#{cid})
-	</insert>
+	
 	<!-- 영화관 검색 -->
 	<select id="cinema" parameterType="String" resultType="join">
 		select m.title,t.tname,c.cname,r.*
@@ -70,7 +59,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<insert id="insertreply" parameterType="rvo">
 insert into reply
-	values(reply_seq.nextval, 'aaa', #{content},1, to_char(sysdate,'YYYY-MM-DD HH24:MI:SS'), 
+	values(reply_seq.nextval, 'aaa', #{content}, to_char(sysdate,'YYYY-MM-DD HH24:MI:SS'), 
 	0,0,0,'1',#{mid})
 			
 </insert>

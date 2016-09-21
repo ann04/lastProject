@@ -97,10 +97,6 @@
 			<li>
 				<a href="#" onclick="loginCheck(${userId})">reservation</a>
 			</li>
-			<li>
-				<a href="blog.html">event</a>
-			</li>
-			
 			<c:if test="${userId==null}">
 			<li>
 				<a href="#" class="btn-example" onclick="layer_open_me('layer2',0);return false;">join</a>

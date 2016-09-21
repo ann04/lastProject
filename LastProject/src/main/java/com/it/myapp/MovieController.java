@@ -11,15 +11,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-<<<<<<< HEAD
 
 import com.it.model.MovieVO;
 import com.it.model.ReplyVO;
-=======
 import com.it.model.AllJoinVO;
 import com.it.model.ReservationVO;
 import com.it.model.SeatCheck;
->>>>>>> branch 'master' of https://github.com/ann04/lastProject.git
 import com.it.model.TheaterVO;
 import com.it.service.MovieService;
 import com.it.service.pageAction;
@@ -100,12 +97,12 @@ public class MovieController {
 		if(pageNum==null){
 			pageNum="1";
 		}
-		int currentPage = Integer.parseInt(pageNum);//현재 페이지
+		int currentPage = Integer.parseInt(pageNum);//�쁽�옱 �럹�씠吏�
 		HashMap<String,Object> hm = new HashMap<String,Object>();
 		
 		int startRow=(currentPage-1)*pageSize+1;
 		int endRow = startRow+pageSize-1;
-		int count = service.getCount(mid);//게시물 수
+		int count = service.getCount(mid);//寃뚯떆臾� �닔
 		hm.put("startRow", startRow);
 		hm.put("endRow", endRow);
 		hm.put("mid", mid);
@@ -132,12 +129,12 @@ public class MovieController {
 		if(pageNum==null){
 			pageNum="1";
 		}
-		int currentPage = Integer.parseInt(pageNum);//현재 페이지
+		int currentPage = Integer.parseInt(pageNum);//�쁽�옱 �럹�씠吏�
 		HashMap<String,Object> hm = new HashMap<String,Object>();
 		
 		int startRow=(currentPage-1)*pageSize+1;
 		int endRow = startRow+pageSize-1;
-		int count = service.getCount(mid);//게시물 수
+		int count = service.getCount(mid);//寃뚯떆臾� �닔
 		hm.put("startRow", startRow);
 		hm.put("endRow", endRow);
 		hm.put("mid", mid);

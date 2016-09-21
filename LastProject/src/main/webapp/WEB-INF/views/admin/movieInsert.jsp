@@ -46,6 +46,7 @@
 			alert("영화관을 선택하세요");
 			return false;
 		}
+		$("#frm").submit();
 	}
 	
 	function cidSend(cid){
@@ -62,7 +63,7 @@
 
 <body>
 <jsp:include page="adminHeader.jsp"/>
-<form action="movieinsert" method="post" enctype="multipart/form-data">	
+<form action="movieinsert" id="frm" method="post" enctype="multipart/form-data">	
 	<div id="body">
 		<h1><span>An's 영화 등록</span></h1>
 		
@@ -72,7 +73,7 @@
 			<tr>
 				<td>
 					<img id="blah" src="#" alt="your image" /><br>
-		 			<input type="file" name="img" accept="image/*" onchange="readURL(this);">
+		 			<input type="file" name="file" accept="image/*" onchange="readURL(this);">
 	 			</td>
 	 			<td>
 	 				제 목 : <input type="text" id="title" name="title"><br>
@@ -94,7 +95,7 @@
 	 			
 			<div class="article">
 			
-				<input type="submit" value="등록" class="aa" onclick="return check();"/> 			
+				<input type="button" value="등록" class="aa" onclick="check();"/> 			
 				
 			</div>
 		</div>

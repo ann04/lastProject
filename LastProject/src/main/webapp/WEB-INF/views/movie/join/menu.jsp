@@ -92,9 +92,6 @@
 				<a href="../reserveview.go">reservation</a>
 			</li>
 			<li>
-				<a href="../blog.html">event</a>
-			</li>
-			<li>
 			<c:if test="${userId==null}">
 				<a href="#" class="btn-example" onclick="layer_open_me('layer2',0);return false;">join</a>
 			</c:if>
