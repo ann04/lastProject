@@ -44,8 +44,6 @@ public class MovieDAOImpl implements MovieDAO{
 	public MovieVO movieView(String id, int mid) {
 		return session.selectOne(id,mid);
 	}
-
-
 	@Override
 	public int getCount(int mid) throws Exception {
 		// TODO Auto-generated method stub
@@ -64,7 +62,6 @@ public class MovieDAOImpl implements MovieDAO{
 			session.insert("insertreply",vo);
 		
 	}
-
 
 	@Override
 	public List<String> getSnum(String id, SeatCheck sc) {

@@ -11,6 +11,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="cin" type="com.it.model.CinemaVO"/>
 		<typeAlias alias="join" type="com.it.model.AllJoinVO"/>
 
+
+		<typeAlias alias="zip" type="com.it.model.ZipCodeVO"/>
+		<typeAlias alias="member" type="com.it.model.MemberVO"/>
+
 		<typeAlias alias="rvo" type="com.it.model.ReplyVO"/>
 
 		<typeAlias alias="sc" type="com.it.model.SeatCheck"/>

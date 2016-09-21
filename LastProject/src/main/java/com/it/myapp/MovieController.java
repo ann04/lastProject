@@ -10,12 +10,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-
 import com.it.model.MovieVO;
 import com.it.model.ReplyVO;
 import com.it.model.AllJoinVO;
 import com.it.model.ReservationVO;
+import com.it.model.SeatCheck;
 import com.it.model.SeatCheck;
 import com.it.model.TheaterVO;
 import com.it.service.MovieService;
