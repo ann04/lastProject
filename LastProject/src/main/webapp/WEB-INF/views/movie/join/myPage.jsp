@@ -40,7 +40,7 @@ border:1px solid #2a2c2f; -webkit-border-radius: 3px; -moz-border-radius: 3px;bo
 	</div>
 	<div align="center">
 		<input type="button" value="회원 정보" class="btn_mem" onclick="location.href='passCheckform'">
-		<input type="button" value="예매 정보" class="btn_res" onclick="location.href='reservecheck.go'">
+		<input type="button" value="예매 정보" class="btn_res" onclick="location.href='reservecheck?userId=${loginsession}'">
 	</div>
 <jsp:include page="footer.jsp"/>
 </body>

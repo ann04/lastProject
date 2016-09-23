@@ -11,6 +11,7 @@ import com.it.model.CinemaVO;
 import com.it.model.MCJoinVO;
 import com.it.model.MovieVO;
 import com.it.model.ReplyVO;
+import com.it.model.ReservationVO;
 import com.it.model.SeatCheck;
 import com.it.model.TheaterVO;
 import com.it.persistence.MovieDAO;
@@ -49,5 +50,8 @@ public class MovieService {
 	}
 	public List<String> getSnum(SeatCheck sc){
 		return dao.getSnum("snumData",sc);
+	}
+	public void reservation(ReservationVO rvo) throws Exception{
+		dao.reservation("insertRev",rvo);
 	}
 }

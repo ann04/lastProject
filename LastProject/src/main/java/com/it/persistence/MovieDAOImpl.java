@@ -12,6 +12,7 @@ import com.it.model.CinemaVO;
 import com.it.model.MCJoinVO;
 import com.it.model.MovieVO;
 import com.it.model.ReplyVO;
+import com.it.model.ReservationVO;
 import com.it.model.SeatCheck;
 import com.it.model.TheaterVO;
 @Repository
@@ -66,5 +67,10 @@ public class MovieDAOImpl implements MovieDAO{
 	@Override
 	public List<String> getSnum(String id, SeatCheck sc) {
 		return session.selectList(id,sc);
+	}
+
+	@Override
+	public void reservation(String id, ReservationVO vo) throws Exception {
+		session.insert(id,vo);
 	}
 }

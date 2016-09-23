@@ -9,6 +9,7 @@ import com.it.model.CinemaVO;
 import com.it.model.MCJoinVO;
 import com.it.model.MovieVO;
 import com.it.model.ReplyVO;
+import com.it.model.ReservationVO;
 import com.it.model.SeatCheck;
 import com.it.model.TheaterVO;
 @Repository
@@ -22,4 +23,6 @@ public interface MovieDAO {
 	public List<ReplyVO> listreply(HashMap<String,Object> hm) throws Exception;
 	public int getCount(int mid) throws Exception;
 	public List<String> getSnum(String id, SeatCheck sc);
+	public void reservation(String id, ReservationVO vo) throws Exception;
+
 }

@@ -4,7 +4,9 @@ package com.it.persistence;
 import java.util.HashMap;
 import java.util.List;
 
+import com.it.model.AllJoinVO;
 import com.it.model.MemberVO;
+import com.it.model.ReservationVO;
 import com.it.model.ZipCodeVO;
 
 public interface MemberDAO {
@@ -14,4 +16,5 @@ public interface MemberDAO {
 	public MemberVO passcheck(String id, HashMap<String, String> hm) throws Exception;
 	public void update(String id, MemberVO vo) throws Exception;
 	public void delete(String id,String userid) throws Exception;
-}
+	public List<AllJoinVO> reserveCheck(String id, String userId) throws Exception;
+	}

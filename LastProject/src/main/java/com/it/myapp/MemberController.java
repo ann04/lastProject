@@ -1,6 +1,6 @@
 package com.it.myapp;
-
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.it.model.AllJoinVO;
 import com.it.model.MemberVO;
 import com.it.model.ZipCodeVO;
 import com.it.service.MemberService;
@@ -107,5 +108,26 @@ public class MemberController {
 		service.delete(id);
 		session.setComplete();
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value="reservecheck", method=RequestMethod.GET)
+	public String reserveCheck(Model model,String userId) throws Exception{
+		List<AllJoinVO> avo = service.reserveCheck(userId);
+		HashMap<AllJoinVO,Integer> hm = new HashMap<AllJoinVO,Integer>();
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd kk:mm");
+		String dt = sdf.format(date);
+		date = sdf.parse(dt);
+		
+		for(int i=0; i<avo.size();i++){
+			Date viewdate = sdf.parse(avo.get(i).getViewdate());
+			if(date.compareTo(viewdate)>0){
+				hm.put(avo.get(i), 1);
+			}else{
+				hm.put(avo.get(i), 0);
+			}
+		}
+		model.addAttribute("res",hm);
+		return "/movie/join/reserveInfo";
 	}
 }

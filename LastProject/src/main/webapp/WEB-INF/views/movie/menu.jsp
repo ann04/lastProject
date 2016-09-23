@@ -72,11 +72,11 @@
 			});	
 	} 
 	function loginCheck(userId){
-		/* if(userId==null){
+		if(userId==null){
 			alert("로그인 후 예매 가능합니다");
-			return false;
-		} */
-		location.href="reserveview";
+		}else{
+			self.location="/reserveview";
+		}
 	}
 </script>
 	
@@ -95,15 +95,8 @@
 				<a href="movieall">movie</a>
 			</li>
 			<li>
-				<a href="#" onclick="loginCheck(${userId})">reservation</a>
+				<a onclick="loginCheck('${loginsession}')">reservation</a>
 			</li>
-
-			<c:if test="${userId==null}">
-
-			<li>
-				<a href="blog.html">event</a>
-			</li>
-			</c:if>
 			<c:if test="${loginsession==null}">
 			<li>
 				<a href="#" class="btn-example" onclick="layer_open_me('layer2',0);return false;">join</a>
@@ -134,10 +127,10 @@
 			</c:if>
 			<c:if test="${loginsession!=null}">
 			<li>
-				<a href ="logout">logout</a>
+				<a href="myPage">MyPage</a>
 			</li>
 			<li>
-				<a href="myPage">MyPage</a>
+				<a href ="logout">logout</a>
 			</li>
 			</c:if>
 		</ul>

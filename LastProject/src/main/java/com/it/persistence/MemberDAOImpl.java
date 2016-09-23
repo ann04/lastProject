@@ -7,7 +7,9 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.it.model.AllJoinVO;
 import com.it.model.MemberVO;
+import com.it.model.ReservationVO;
 import com.it.model.ZipCodeVO;
 @Repository
 public class MemberDAOImpl implements MemberDAO{
@@ -50,6 +52,10 @@ public class MemberDAOImpl implements MemberDAO{
 		// TODO Auto-generated method stub
 		session.delete(id,userid);
 	}
-	
+
+	@Override
+	public List<AllJoinVO> reserveCheck(String id, String userId) throws Exception {
+		return session.selectList(id,userId);
+	}
 	
 }

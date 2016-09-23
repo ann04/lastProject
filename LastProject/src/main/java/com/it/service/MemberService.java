@@ -7,6 +7,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.it.model.AllJoinVO;
 import com.it.model.MemberVO;
 import com.it.model.ZipCodeVO;
 import com.it.persistence.MemberDAO;
@@ -37,5 +38,8 @@ public class MemberService {
 	}
 	public void delete(String id) throws Exception{
 		dao.delete("memdelete",id);
+	}
+	public List<AllJoinVO> reserveCheck(String userId) throws Exception{
+		return dao.reserveCheck("cinema",userId);
 	}
 }

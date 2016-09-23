@@ -42,7 +42,7 @@ function sendIt(){
 	$.ajax({
 		type:"get",
 		url:"insertreply",
-		data: "content="+content+"&mid="+mid,
+		data: "content="+content+"&mid="+mid+"&userid=${sessionScope.loginsession}",
 		success:function(data){
 			$("#results").html(data);
 		},
@@ -57,6 +57,10 @@ function show(){
 	if(!$("#content").val()){//내용
 		alert("내용을 입력하세요.");
 		$("#content").focus();
+		return false;
+	}
+	if("${sessionScope.loginsession}"==""){
+		alert("로그인후 이용가능합니다.");
 		return false;
 	}
 	return true;

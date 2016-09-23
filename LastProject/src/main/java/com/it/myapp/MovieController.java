@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.it.model.MovieVO;
 import com.it.model.ReplyVO;
 import com.it.model.AllJoinVO;
@@ -61,6 +63,8 @@ public class MovieController {
 		sc.setPCnt(pcnt);
 		sc.setViewDate(viewdate);
 		sc.setSnums(service.getSnum(sc));
+		model.addAttribute("sc",sc);
+		model.addAttribute("viewdate",viewdate);
 		model.addAttribute("hm",sc.getSeat());
 		model.addAttribute("perCnt",sc.getPCnt());
 		return "/movie/reserveSeat";
@@ -68,8 +72,10 @@ public class MovieController {
 	}
 	
 	@RequestMapping(value="/reservation", method=RequestMethod.POST)
-	public String reservation(String mid,String cid,String viewdate, String[] snum){
-		return null;
+	//@RequestParam(value="snums", required=true) List<String> check
+	public String reservation(ReservationVO vo) throws Exception{
+		service.reservation(vo);
+		return "redirect:/";
 	}
 	
 	@RequestMapping(value="/movieall", method=RequestMethod.GET)
@@ -105,9 +111,6 @@ public class MovieController {
 		hm.put("startRow", startRow);
 		hm.put("endRow", endRow);
 		hm.put("mid", mid);
-		System.out.println("count : " + count);
-		System.out.println(hm);
-		
 		if(endRow>count) endRow =count;
 		
 	
@@ -137,9 +140,7 @@ public class MovieController {
 		hm.put("startRow", startRow);
 		hm.put("endRow", endRow);
 		hm.put("mid", mid);
-		System.out.println("count : " + count);
-		System.out.println(hm);
-		
+	
 		if(endRow>count) endRow =count;
 		
 	

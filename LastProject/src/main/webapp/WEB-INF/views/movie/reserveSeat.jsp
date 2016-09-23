@@ -9,16 +9,18 @@
 <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 <script>
 	var cnt=0;
-	function perCnt(perCnt){
+	function perCnt(perCnt,value){
 		cnt=cnt+1;
-		if(cnt==perCnt){
-			$(".checkbox-style").attr("disabled","disabled");
-			return false;
+		if(cnt<perCnt){
+			$("#snum").val($("#snum").val()+value+"/");
+		}else if(cnt==perCnt){
+			$("#snum").val($("#snum").val()+value);
+			$("input[name=snums]").prop('disabled',true);
 		}else if(cnt>perCnt){
 			alert("선택 된 명수가 초과되었습니다.");
 		}
-		return false;
 	}
+
 </script>
 <style type="text/css">
 	
@@ -71,11 +73,11 @@ input[type=checkbox]:checked + label:before {
 </style>
 </head>
 <body>
-<form action="reservation" method="post">
-	<input type="hidden" name="mid" value="${mid}">
-	<input type="hidden" name=cid value="${cid}">
+<form action="reservation" method="post" name="frm">
+	<input type="hidden" name="mid" value="${sc.mid}">
+	<input type="hidden" name=cid value="${sc.cid}">
 	<input type="hidden" name="viewdate" value="${viewdate}">
-	
+ 	<input type="hidden" name="snum" id="snum">
 	<h3><table border="1">
 	<tr>
 	<td>--------------------------------------screen--------------------------------------</td>
@@ -83,8 +85,8 @@ input[type=checkbox]:checked + label:before {
 	</table></h3>
 	&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;
 	11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12&nbsp;&nbsp;&nbsp;&nbsp;
 	13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15
@@ -94,14 +96,15 @@ input[type=checkbox]:checked + label:before {
 	<br>
 	</c:if>
 	<c:if test="${i.value=='□'}">
-	<input type="checkbox" id="${i.key}" value="${i.key}" name="snum" class="checkbox-style" onclick="perCnt(${perCnt})"/><label for="${i.key}"></label>
+	<input type="checkbox" id="${i.key}" value="${i.key}" name="snums" class="checkbox-style" onclick="perCnt(${perCnt},this.value)"/><label for="${i.key}"></label>
 	</c:if>
 	<c:if test="${i.value=='■'}">
 	<input type="checkbox" id="f_r" class="checkbox-style" checked="checked" disabled="disabled"/><label for="f_r"></label>
 	</c:if>	
 	</c:forEach>
-	<br><input type="submit" value="좌석선택완료" >
 	</div>
+	<br><input type="submit" value="좌석선택완료">
+	
 	<div>
 	
 	</div>

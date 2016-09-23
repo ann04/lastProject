@@ -71,7 +71,15 @@
 				$('.layer').fadeOut();
 				e.preventDefault();
 			});	
-	}      
+	}
+	function loginCheck(userId){
+		if(userId==null){
+			alert("로그인 후 예매 가능합니다");
+		}else{
+			alert("dd");
+			location.href="/reserveview";
+		}
+	}
 </script>
 	
 	
@@ -92,7 +100,7 @@
 				<a href="../reserveview.go">reservation</a>
 			</li>
 			<li>
-			<c:if test="${userId==null}">
+			<c:if test="${loginsession==null}">
 				<a href="#" class="btn-example" onclick="layer_open_me('layer2',0);return false;">join</a>
 			</c:if>
 			<div class="layer">
@@ -121,12 +129,12 @@
 					</div>
 				</div>				
 			</li>
-			<c:if test="${userId!=null}">
+			<c:if test="${loginsession!=null}">
 			<li>
-				<a href="../logout.go">logout</a>
+				<a href="myPage">MyPage</a>
 			</li>
 			<li>
-				<a href="myPage.jsp">MyPage</a>
+				<a href ="logout">logout</a>
 			</li>
 			</c:if>
 					

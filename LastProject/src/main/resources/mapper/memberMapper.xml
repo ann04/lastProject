@@ -27,4 +27,8 @@ update teampro set name=#{name},jumin=#{jumin},zipcode=#{zipcode},addr=#{addr},t
 <delete id="memdelete" parameterType="String">
 delete from teampro where id=#{userid}
 </delete>
+	<!-- 영화관 검색 -->
+	<select id="cinema" parameterType="String" resultType="join">
+		select m.title,t.tname,c.cname,r.* from movie m, theater t, cinema c, reservation r where id=#{userId} and m.mid=r.mid and t.tid=c.tid and r.cid=c.cid
+	</select>
 </mapper>
