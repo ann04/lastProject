@@ -77,6 +77,7 @@ input[type=checkbox]:checked + label:before {
 	<input type="hidden" name="mid" value="${sc.mid}">
 	<input type="hidden" name=cid value="${sc.cid}">
 	<input type="hidden" name="viewdate" value="${viewdate}">
+	<input type="hidden" name="id" value="${loginsession}">
  	<input type="hidden" name="snum" id="snum">
 	<h3><table border="1">
 	<tr>
